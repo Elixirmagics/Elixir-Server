@@ -11,6 +11,16 @@ const bitcoinSchema = new Schema({
   symbol: { 
     type: String,
   },
+  
+  receive_coin: {
+    type: String,
+    required: true,
+  }
+  
+  network: {
+    type: String,
+    required: true,
+  }
 
   amount: { 
     type: Number,
