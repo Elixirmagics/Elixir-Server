@@ -8,15 +8,17 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const coin = req.body.coin;
-  const symbol = req.body.symbol;
+  const deposit = req.body.deposit;
   const amount = Number(req.body.amount);
+  const withdraw = req.body.withdraw;
+  const network = req.body.network;
   const address = (req.body.address);
 
   const newBitcoin = new Bitcoin({
-    coin,
-    symbol,
+    deposit,
     amount,
+    withdraw,
+    network,
     address,
   });
 
@@ -28,9 +30,10 @@ router.route('/add').post((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Bitcoin.findById(req.params.id)
     .then(bitcoin => {
-      bitcoin.coin = req.body.coin;
-      bitcoin.symbol = req.body.symbol;
+      bitcoin.deposit = req.body.deposit;
       bitcoin.amount = Number(req.body.amount);
+      bitcoin.withdraw = req.body.withdraw;
+      bitcoin.network = req.body.network;
       bitcoin.address = req.body.address;
 
       bitcoin.save()
