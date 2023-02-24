@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ethereumSchema = new Schema({
-  coin: { 
+  deposit: { 
     type: String, 
     required: true 
   },
