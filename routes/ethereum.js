@@ -8,13 +8,13 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const coin = req.body.coin;
+  const deposit = req.body.deposit;
   const symbol = req.body.symbol;
   const amount = Number(req.body.amount);
   const address = (req.body.address);
 
   const newEthereum = new Ethereum({
-    coin,
+    deposit,
     symbol,
     amount,
     address,
@@ -28,7 +28,7 @@ router.route('/add').post((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Ethereum.findById(req.params.id)
     .then(ethereum => {
-      ethereum.coin = req.body.coin;
+      ethereum.deposit = req.body.deposit;
       ethereum.symbol = req.body.symbol;
       ethereum.amount = Number(req.body.amount);
       ethereum.address = req.body.address;
