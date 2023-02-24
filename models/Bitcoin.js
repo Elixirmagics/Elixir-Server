@@ -1,31 +1,26 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-
 const bitcoinSchema = new Schema({
-  coin: { 
+  
+  deposit: { 
     type: String, 
     required: true 
   },
-
-  symbol: { 
-    type: String,
+  
+  amount: { 
+    type: Number,
+    require: true,
   },
   
-  receive_coin: {
+  withdraw: {
     type: String,
-    required: true,
+    require: true,
   }
   
   network: {
     type: String,
     required: true,
   }
-
-  amount: { 
-    type: Number,
-    require: true,
-  },
 
   address: { 
     type: String,
